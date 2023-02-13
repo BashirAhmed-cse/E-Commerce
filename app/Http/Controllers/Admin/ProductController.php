@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Subcategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -19,7 +21,20 @@ class ProductController extends Controller
 
     public function addProduct()
     {
-        return view('admin.addproduct');
+        $categories = Category::latest()->get();
+        $subcategories = Subcategory::latest()->get();
+        return view('admin.addproduct', compact('categories','subcategories'));
+    }
+
+    public function storeProduct(Request $request)
+    {
+        $request->validate([
+       'product_name' => 'required|unique:products',
+       'price'=>'required',
+       'image'=>'required',
+       'quantity'=>'required',
+
+        ]);
     }
     /**
      * Show the form for creating a new resource.

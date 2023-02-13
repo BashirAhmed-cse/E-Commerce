@@ -41,16 +41,28 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(CategoryController::class)->group(function(){
         Route::get('/admin/all-category', 'index')->name('allcategory');
         Route::get('/admin/add-category', 'addCategory')->name('addcategory');
+        Route::post('/admin/store-category', 'storeCategory')->name('storecategory');
+        Route::get('/admin/edit-category/{id}', 'editCategory')->name('editcategory');
+        Route::post('/admin/update-category', 'updateCategory')->name('updatecategory');
+        Route::get('/admin/delete-category/{id}', 'deleteCategory')->name('deletecategory');
     });
 
     Route::controller(SubCategoryController::class)->group(function(){
         Route::get('/admin/all-subcategory', 'index')->name('allsubcategory');
         Route::get('/admin/add-subcategory', 'addSubCategory')->name('addsubcategory');
+        Route::post('/admin/store-subcategory', 'storeSubCategory')->name('storesubcategory');
+        Route::get('/admin/edit-subcategory/{id}', 'editSubCategory')->name('editsubcategory');
+        Route::post('/admin/update-subcategory', 'updateSubCategory')->name('updatesubcategory');
+        Route::get('/admin/delete-subcategory/{id}', 'deleteSubCategory')->name('deletesubcategory');
     });
 
     Route::controller(ProductController::class)->group(function(){
         Route::get('/admin/all-product', 'index')->name('allproduct');
         Route::get('/admin/add-product', 'addProduct')->name('addproduct');
+        Route::post('/admin/store-product', 'storeProduct')->name('storeproduct');
+        Route::get('/admin/edit-product/{id}', 'editProduct')->name('editproduct');
+        Route::post('/admin/update-product', 'updateProduct')->name('updateproduct');
+        Route::get('/admin/delete-product/{id}', 'deleteProduct')->name('deleteproduct');
     });
 
     Route::controller(OrderController::class)->group(function(){

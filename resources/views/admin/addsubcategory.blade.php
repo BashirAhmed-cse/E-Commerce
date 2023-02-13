@@ -15,7 +15,8 @@ Add - SubCategory
             {{-- <small class="text-muted float-end">Default label</small> --}}
           </div>
           <div class="card-body">
-            <form action="" method="post">
+            <form action="{{route('storesubcategory')}}" method="post">
+              @csrf
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Sub Category Name</label>
                 <div class="col-sm-10">
@@ -25,11 +26,13 @@ Add - SubCategory
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Category Name</label>
                 <div class="col-sm-10">
-                <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-                  <option selected>Select Category</option>
-                  <option value="1">Electronic</option>
-                  <option value="2">Dresh</option>
-                  <option value="3">Three</option>
+                <select class="form-select" id="category_id" name="category_id" aria-label="Default select example">
+                  <option selected disabled>Select Category</option>
+                  @foreach ($categories as $category)
+
+                  <option value="{{$category->id}}">{{$category->category_name}}</option>
+
+                  @endforeach
                 </select>
               </div>
               </div>

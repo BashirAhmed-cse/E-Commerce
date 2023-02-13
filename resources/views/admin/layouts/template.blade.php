@@ -44,7 +44,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-
+   
     @include('admin.layouts.includes.scripts')
- 
+    @yield('script')
 </html>

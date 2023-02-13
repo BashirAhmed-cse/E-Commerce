@@ -24,50 +24,60 @@ Add - Product
                 </div>
               </div>
               <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="basic-default-name">Price</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="price" name="price" placeholder="Product Price" />
+                </div>
+              </div>
+              <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Short Description</label>
                 <div class="col-sm-10">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea class="form-control" id="product_short_des" name="product_short_des" rows="3"></textarea>
                 </div>
               </div>
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Long Description</label>
                 <div class="col-sm-10">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="basic-default-name">Price</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" id="product_price" name="product_price" placeholder="Product Price" />
+                  <textarea class="form-control" id="product_long_des" name="product_long_des" rows="3"></textarea>
                 </div>
               </div>
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Category Name</label>
                 <div class="col-sm-10">
-                <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                <select class="form-select" id="product_category_name" name="product_category_name" aria-label="Default select example">
                   <option selected>Select Category</option>
-                  <option value="1">Electronic</option>
-                  <option value="2">Dresh</option>
-                  <option value="3">Three</option>
+
+                   @foreach ($categories as $category)
+                  <option value="{{$category->id}}">{{$category->category_name}}</option>
+                  @endforeach
+
                 </select>
               </div>
               </div>
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Sub Category Name</label>
                 <div class="col-sm-10">
-                <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-                  <option selected>Select Sub Category</option>
-                  <option value="1">Electronic</option>
-                  <option value="2">Dresh</option>
-                  <option value="3">Three</option>
+                <select class="form-select" id="product_subcategory_name" name="product_subcategory_name" aria-label="Default select example">
+                  <option selected disabled>Select Sub Category</option>
+
+                  @foreach ($subcategories as $subcategory)
+                  <option value="{{$subcategory->id}}">{{$subcategory->subcategory_name}}</option>
+                  @endforeach
+
                 </select>
               </div>
               </div>
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Image</label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="file" id="formFileMultiple" multiple />
+                  <input class="form-control" type="file" id="image" name="image" multiple />
               </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="basic-default-name">Quantity</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Product Quantity" />
+                </div>
               </div>
               <div class="row justify-content-end">
                 <div class="col-sm-10">

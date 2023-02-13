@@ -19,6 +19,7 @@ All - Product
                   <th>ID</th>
                   <th>Product Name</th>
                   <th>Photo</th>
+                  <th>Quantity</th>
                   <th>Short Description</th>
                   <th>Long Description</th>
                   <th>Price</th>
@@ -32,6 +33,7 @@ All - Product
                     <td>1</td>
                     <td>Electronics</td>
                     <td>Photo</td>
+                    <td>100</td>
                     <td>Short Description</td>
                     <td>Long Description</td>
                     <td>100</td>
