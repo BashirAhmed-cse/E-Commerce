@@ -93,6 +93,12 @@ class ProductController extends Controller
 
              return redirect()->route('allproduct')->with('message', 'Product Image Updated Successfully!');
     }
+
+    public function editProduct($id)
+    {
+        $editproducts = Product::findOrFail($id);
+        return view ('admin.editproduct', compact('editproducts'));
+    }
     /**
      * Show the form for creating a new resource.
      *

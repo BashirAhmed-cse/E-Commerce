@@ -25,8 +25,6 @@ All - Product
                   <th>Product Name</th>
                   <th>Photo</th>
                   <th>Quantity</th>
-                  <th>Short Description</th>
-                  <th>Long Description</th>
                   <th>Price</th>
                   <th>Category</th>
                   <th>Sub Category</th>
@@ -44,14 +42,12 @@ All - Product
                       <a href="{{route('editproductimage',$product->id)}}" class="btn btn-primary btn-sm">Update Image</a>
                     </td>
                     <td>{{$product->quantity}}</td>
-                    <td>{{$product->product_short_des}}</td>
-                    <td>{{$product->product_long_des}}</td>
                     <td>{{$product->price}}</td>
                     <td>{{$product->product_category_name}}</td>
                     <td>{{$product->product_subcategory_name}}</td>
                     <td>
-                        <a href="" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="{{route('editproduct',$product->id)}}" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="{{route('deleteproduct',$product->id)}}" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 @endforeach
