@@ -16,7 +16,8 @@ Add - Product
             {{-- <small class="text-muted float-end">Default label</small> --}}
           </div>
           <div class="card-body">
-            <form action="" method="post">
+            <form action="{{route('storeproduct')}}" method="post" enctype="multipart/form-data">
+               @csrf
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Product Name</label>
                 <div class="col-sm-10">
@@ -44,7 +45,7 @@ Add - Product
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Category Name</label>
                 <div class="col-sm-10">
-                <select class="form-select" id="product_category_name" name="product_category_name" aria-label="Default select example">
+                <select class="form-select" id="category_id" name="category_id" aria-label="Default select example">
                   <option selected>Select Category</option>
 
                    @foreach ($categories as $category)
@@ -57,7 +58,7 @@ Add - Product
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Sub Category Name</label>
                 <div class="col-sm-10">
-                <select class="form-select" id="product_subcategory_name" name="product_subcategory_name" aria-label="Default select example">
+                <select class="form-select" id="subcategory_id" name="subcategory_id" aria-label="Default select example">
                   <option selected disabled>Select Sub Category</option>
 
                   @foreach ($subcategories as $subcategory)
