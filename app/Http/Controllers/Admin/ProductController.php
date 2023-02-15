@@ -99,6 +99,46 @@ class ProductController extends Controller
         $editproducts = Product::findOrFail($id);
         return view ('admin.editproduct', compact('editproducts'));
     }
+
+    public function updateProduct(Request $request)
+    {
+        $request->validate([
+            'product_name' => 'required|unique:products',
+         
+     
+             ]);
+
+             $product_id = $request->product_id;
+
+             $image = $request->file('image');
+             $image_name = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+             $request->image->move(public_path('upload'),$image_name);
+             $image_url='upload/' .$image_name;
+
+             Product::findOrFail($product_id)->update([
+            'product_name' => $request->product_name,
+            'product_short_des' => $request->product_short_des,
+            'product_long_des' => $request->product_long_des,
+            'price' => $request->price,
+            // 'category_id' => $request->category_id,
+            // 'subcategory_id' => $request->subcategory_id,
+            'image' => $image_url,
+            'quantity' => $request->quantity,
+            'slug' => strtolower(str_replace('','-', $request->product_name))
+                 ]);
+            return redirect()->route('allproduct')->with('message', 'Product Updated Successfully!');
+    }
+
+    public function deleteProduct($id)
+        {
+            $category_id = Product::where('id', $id)->value('category_id');
+            $subcategory_id = Product::where('id', $id)->value('subcategory_id');
+         Product::findOrFail($id)->delete();
+         Category::where('id', $category_id)->decrement('product_count',1);
+         Subcategory::where('id', $subcategory_id)->decrement('product_count',1);
+         return redirect()->route('allproduct')->with('message', 'Product Deleted Successfully!');
+        }
+    
     /**
      * Show the form for creating a new resource.
      *
