@@ -5,7 +5,7 @@
              <div class="custom_menu">
                 <ul>
                    <li><a href="#">Best Sellers</a></li>
-                   <li><a href="{{route('category')}}">Gift Ideas</a></li>
+                   <li><a href="#">Gift Ideas</a></li>
                    <li><a href="{{route('newrelase')}}">New Releases</a></li>
                    <li><a href="{{route('todaysdeal')}}">Today's Deals</a></li>
                    <li><a href="{{route('customerservice')}}">Customer Service</a></li>

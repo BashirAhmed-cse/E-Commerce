@@ -31,8 +31,8 @@ Route::controller(HomeController::class)->group(function(){
 });
 
 Route::controller(UiController::class)->group(function(){
-    Route::get('/category', 'categoryPage')->name('category');
-    Route::get('/singleproduct', 'singleProductPage')->name('singleproduct');
+    Route::get('/category/{id}/{slug}', 'categoryPage')->name('category');
+    Route::get('/product-details/{id}/{slug}', 'singleProductPage')->name('singleproduct');
     Route::get('/addtocart', 'addToCart')->name('addtocart');
     Route::get('/checkout', 'checkOut')->name('checkout');
     Route::get('/userprofile', 'userProfile')->name('userprofile');
