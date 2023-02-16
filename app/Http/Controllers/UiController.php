@@ -22,7 +22,11 @@ class UiController extends Controller
         $products = Product::findOrFail($id);
         $categories = Category::findOrFail($id);
         $subcategories = Subcategory::findOrFail($id);
-        return view('user_template.layouts.singleproduct', compact('products','categories','subcategories'));
+
+        $subcategory_id= Product::where('id', $id)->value('subcategory_id');
+        $related_products = Product::where('subcategory_id',$subcategory_id)->latest()->get();
+
+        return view('user_template.layouts.singleproduct', compact('products','categories','subcategories','related_products'));
     }
     public function addToCart()
     {

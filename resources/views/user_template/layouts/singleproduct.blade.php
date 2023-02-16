@@ -41,14 +41,12 @@
                        <h1 class="fashion_taital">Related Products</h1>
                        <div class="fashion_section_2">
                           <div class="row">
-                           @foreach ($products as $product)
-                               
-                           
+                           @foreach ($related_products as $product)
                             <div class="col-lg-4 col-sm-4">
                                <div class="box_main">
-                                  <h4 class="shirt_text">Mobile</h4>
-                                  <p class="price_text">Price  <span style="color: #262626;">200</span></p>
-                                  <div class="tshirt_img"><img src=""></div>
+                                  <h4 class="shirt_text">{{$product->product_name}}</h4>
+                                  <p class="price_text">Price  <span style="color: #262626;">{{$product->price}}</span></p>
+                                  <div class="tshirt_img"><img src="{{asset($product->image)}}"></div>
                                   <div class="btn_main">
                                      <div class="buy_bt"><a href="#">Buy Now</a></div>
                                      <div class="seemore_bt"><a href="">See More</a></div>
